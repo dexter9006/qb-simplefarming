@@ -5,33 +5,54 @@ local QBCore = exports['qb-core']:GetCoreObject()
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(AppleField) do
-      local AppleFieldBlip = AddBlipForCoord(AppleField[k].BlipCoord)
-        SetBlipSprite(AppleFieldBlip, AppleField[k].Blip)
-        SetBlipAsShortRange(AppleFieldBlip, true)
-        SetBlipScale(AppleFieldBlip, 0.8)
-        SetBlipColour(AppleFieldBlip, AppleField[k].BlipColor)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(AppleField[k].label)
-        EndTextCommandSetBlipName(AppleFieldBlip)
+      if AppleField[k].Blips then
+        local AppleFieldBlip = AddBlipForCoord(AppleField[k].BlipCoord)
+          SetBlipSprite(AppleFieldBlip, AppleField[k].Blip)
+          SetBlipAsShortRange(AppleFieldBlip, true)
+          SetBlipScale(AppleFieldBlip, 0.8)
+          SetBlipColour(AppleFieldBlip, AppleField[k].BlipColor)
+          BeginTextCommandSetBlipName("STRING")
+          AddTextComponentString(AppleField[k].label)
+          EndTextCommandSetBlipName(AppleFieldBlip)
 
-      local ApplePicking = PolyZone:Create(AppleField[k].zones, {
-        name = AppleField[k].label,
-        minZ = AppleField[k].minz,
-        maxZ = AppleField[k].maxz,
-        debugPoly = false
-      })
+        local ApplePicking = PolyZone:Create(AppleField[k].zones, {
+          name = AppleField[k].label,
+          minZ = AppleField[k].minz,
+          maxZ = AppleField[k].maxz,
+          debugPoly = false
+        })
 
-      ApplePicking:onPlayerInOut(function(isPointInside)
-        if isPointInside then
-          inZone = true
-          TriggerEvent('AppleTrees')
-        else
-          for _, v in pairs(ATreeZones) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        ApplePicking:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('AppleTrees')
+          else
+            for _, v in pairs(ATreeZones) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-        end
-      end)
+        end)
+      else 
+        local ApplePicking = PolyZone:Create(AppleField[k].zones, {
+          name = AppleField[k].label,
+          minZ = AppleField[k].minz,
+          maxZ = AppleField[k].maxz,
+          debugPoly = false
+        })
+
+        ApplePicking:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('AppleTrees')
+          else
+            for _, v in pairs(ATreeZones) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+          end
+        end)
+      end
     end
   end)
 else
@@ -430,33 +451,54 @@ exports['qb-target']:AddBoxZone("GetCowBucket", vector3(419.13, 6470.74, 28.82),
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(PumpkinField) do
-      local PumpkinFarmingBlip = AddBlipForCoord(PumpkinField[k].BlipCoord)
-        SetBlipSprite(PumpkinFarmingBlip, PumpkinField[k].Blip)
-        SetBlipAsShortRange(PumpkinFarmingBlip, true)
-        SetBlipScale(PumpkinFarmingBlip, 0.8)
-        SetBlipColour(PumpkinFarmingBlip, PumpkinField[k].BlipColor)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(PumpkinField[k].label)
-        EndTextCommandSetBlipName(PumpkinFarmingBlip)
+      if PumpkinField[k].Blips then
+        local PumpkinFarmingBlip = AddBlipForCoord(PumpkinField[k].BlipCoord)
+          SetBlipSprite(PumpkinFarmingBlip, PumpkinField[k].Blip)
+          SetBlipAsShortRange(PumpkinFarmingBlip, true)
+          SetBlipScale(PumpkinFarmingBlip, 0.8)
+          SetBlipColour(PumpkinFarmingBlip, PumpkinField[k].BlipColor)
+          BeginTextCommandSetBlipName("STRING")
+          AddTextComponentString(PumpkinField[k].label)
+          EndTextCommandSetBlipName(PumpkinFarmingBlip)
 
-      local PumpkinFarmingLocation = PolyZone:Create(PumpkinField[k].zones, {
-        name = PumpkinField[k].label,
-        minZ = PumpkinField[k].minz,
-        maxZ = PumpkinField[k].maxz,
-        debugPoly = false
-      })
+        local PumpkinFarmingLocation = PolyZone:Create(PumpkinField[k].zones, {
+          name = PumpkinField[k].label,
+          minZ = PumpkinField[k].minz,
+          maxZ = PumpkinField[k].maxz,
+          debugPoly = false
+        })
 
-      PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
-        if isPointInside then
-          inZone = true
-          TriggerEvent('qb-simplefarming:pumpkin')
-        else
-          for _, v in pairs(PumpkinFarming1) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('qb-simplefarming:pumpkin')
+          else
+            for _, v in pairs(PumpkinFarming1) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-        end
-      end)
+        end)
+      else
+        local PumpkinFarmingLocation = PolyZone:Create(PumpkinField[k].zones, {
+          name = PumpkinField[k].label,
+          minZ = PumpkinField[k].minz,
+          maxZ = PumpkinField[k].maxz,
+          debugPoly = false
+        })
+
+        PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('qb-simplefarming:pumpkin')
+          else
+            for _, v in pairs(PumpkinFarming1) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+          end
+        end)
+      end
     end
   end)
 else
@@ -560,33 +602,54 @@ end)
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(CornFields) do
-      local CornFieldBlips = AddBlipForCoord(CornFields[k].BlipCoord)
-        SetBlipSprite(CornFieldBlips, CornFields[k].Blip)
-        SetBlipAsShortRange(CornFieldBlips, true)
-        SetBlipScale(CornFieldBlips, 0.8)
-        SetBlipColour(CornFieldBlips, CornFields[k].BlipColor)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(CornFields[k].label)
-        EndTextCommandSetBlipName(CornFieldBlips)
+      if CornFields[k].Blips then
+        local CornFieldBlips = AddBlipForCoord(CornFields[k].BlipCoord)
+          SetBlipSprite(CornFieldBlips, CornFields[k].Blip)
+          SetBlipAsShortRange(CornFieldBlips, true)
+          SetBlipScale(CornFieldBlips, 0.8)
+          SetBlipColour(CornFieldBlips, CornFields[k].BlipColor)
+          BeginTextCommandSetBlipName("STRING")
+          AddTextComponentString(CornFields[k].label)
+          EndTextCommandSetBlipName(CornFieldBlips)
 
-      local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
-        name = CornFields[k].label,
-        minZ = CornFields[k].minz,
-        maxZ = CornFields[k].maxz,
-        debugPoly = false
-      })
+        local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
+          name = CornFields[k].label,
+          minZ = CornFields[k].minz,
+          maxZ = CornFields[k].maxz,
+          debugPoly = false
+        })
 
-      CornFieldLocation:onPlayerInOut(function(isPointInside)
-        if isPointInside then
-          inZone = true
-          TriggerEvent('CornField')
-        else
-          for _, v in pairs(CornField1) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        CornFieldLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('CornField')
+          else
+            for _, v in pairs(CornField1) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-        end
-      end)
+        end)
+      else
+        local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
+          name = CornFields[k].label,
+          minZ = CornFields[k].minz,
+          maxZ = CornFields[k].maxz,
+          debugPoly = false
+        })
+
+        CornFieldLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('CornField')
+          else
+            for _, v in pairs(CornField1) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+          end
+        end)
+      end
     end
   end)
 else
@@ -684,48 +747,84 @@ end)
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(Garden) do
-      local GardenBlips = AddBlipForCoord(Garden[k].BlipCoord)
-        SetBlipSprite(GardenBlips, Garden[k].Blip)
-        SetBlipAsShortRange(GardenBlips, true)
-        SetBlipScale(GardenBlips, 0.8)
-        SetBlipColour(GardenBlips, Garden[k].BlipColor)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(Garden[k].label)
-        EndTextCommandSetBlipName(GardenBlips)
+      if Garden[k].Blips then
+        local GardenBlips = AddBlipForCoord(Garden[k].BlipCoord)
+          SetBlipSprite(GardenBlips, Garden[k].Blip)
+          SetBlipAsShortRange(GardenBlips, true)
+          SetBlipScale(GardenBlips, 0.8)
+          SetBlipColour(GardenBlips, Garden[k].BlipColor)
+          BeginTextCommandSetBlipName("STRING")
+          AddTextComponentString(Garden[k].label)
+          EndTextCommandSetBlipName(GardenBlips)
 
-      local GardenLocation = PolyZone:Create(Garden[k].zones, {
-        name = Garden[k].label,
-        minZ = Garden[k].minz,
-        maxZ = Garden[k].maxz,
-        debugPoly = false
-      })
+        local GardenLocation = PolyZone:Create(Garden[k].zones, {
+          name = Garden[k].label,
+          minZ = Garden[k].minz,
+          maxZ = Garden[k].maxz,
+          debugPoly = false
+        })
 
-      GardenLocation:onPlayerInOut(function(isPointInside)
-        if isPointInside then
-          inZone = true
-          TriggerEvent('GrapeField')
-          TriggerEvent('GreenPeppers')
-          TriggerEvent('ChillPeppers')
-          TriggerEvent('Tomatoes')
-        else
-          for _, v in pairs(GrapeFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        GardenLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('GrapeField')
+            TriggerEvent('GreenPeppers')
+            TriggerEvent('ChillPeppers')
+            TriggerEvent('Tomatoes')
+          else
+            for _, v in pairs(GrapeFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(GPeppersFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(CPeppersFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(TomatoesField) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-          for _, v in pairs(GPeppersFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        end)
+      else
+        local GardenLocation = PolyZone:Create(Garden[k].zones, {
+          name = Garden[k].label,
+          minZ = Garden[k].minz,
+          maxZ = Garden[k].maxz,
+          debugPoly = false
+        })
+  
+        GardenLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('GrapeField')
+            TriggerEvent('GreenPeppers')
+            TriggerEvent('ChillPeppers')
+            TriggerEvent('Tomatoes')
+          else
+            for _, v in pairs(GrapeFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(GPeppersFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(CPeppersFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(TomatoesField) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-          for _, v in pairs(CPeppersFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
-          end
-          for _, v in pairs(TomatoesField) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
-          end
-        end
-      end)
+        end)
+      end
     end
   end)
 else
@@ -995,48 +1094,84 @@ end)
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(BigGarden) do
-    local BigGardenBlips = AddBlipForCoord(BigGarden[k].BlipCoord)
-      SetBlipSprite(BigGardenBlips, BigGarden[k].Blip)
-      SetBlipAsShortRange(BigGardenBlips, true)
-      SetBlipScale(BigGardenBlips, 0.8)
-      SetBlipColour(BigGardenBlips, BigGarden[k].BlipColor)
-      BeginTextCommandSetBlipName("STRING")
-      AddTextComponentString(BigGarden[k].label)
-      EndTextCommandSetBlipName(BigGardenBlips)
+      if BigGarden[k].Blips then
+        local BigGardenBlips = AddBlipForCoord(BigGarden[k].BlipCoord)
+        SetBlipSprite(BigGardenBlips, BigGarden[k].Blip)
+        SetBlipAsShortRange(BigGardenBlips, true)
+        SetBlipScale(BigGardenBlips, 0.8)
+        SetBlipColour(BigGardenBlips, BigGarden[k].BlipColor)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentString(BigGarden[k].label)
+        EndTextCommandSetBlipName(BigGardenBlips)
 
-    local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
-        name = BigGarden[k].label,
-        minZ = BigGarden[k].minz,
-        maxZ = BigGarden[k].maxz,
-        debugPoly = false
-    })
+      local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
+          name = BigGarden[k].label,
+          minZ = BigGarden[k].minz,
+          maxZ = BigGarden[k].maxz,
+          debugPoly = false
+      })
 
-      BigGardenLocation:onPlayerInOut(function(isPointInside)
-        if isPointInside then
-          inZone = true
-          TriggerEvent('BigGrapeField')
-          TriggerEvent('BigGreenPField')
-          TriggerEvent('BigChillyField')
-          TriggerEvent('BigTomField')
-        else
-          for _, v in pairs(BigGrapeFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        BigGardenLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('BigGrapeField')
+            TriggerEvent('BigGreenPField')
+            TriggerEvent('BigChillyField')
+            TriggerEvent('BigTomField')
+          else
+            for _, v in pairs(BigGrapeFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigGreenPepperFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigChillyPepperFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigTomatoesFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-          for _, v in pairs(BigGreenPepperFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
+        end)
+      else
+        local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
+          name = BigGarden[k].label,
+          minZ = BigGarden[k].minz,
+          maxZ = BigGarden[k].maxz,
+          debugPoly = false
+        })
+  
+        BigGardenLocation:onPlayerInOut(function(isPointInside)
+          if isPointInside then
+            inZone = true
+            TriggerEvent('BigGrapeField')
+            TriggerEvent('BigGreenPField')
+            TriggerEvent('BigChillyField')
+            TriggerEvent('BigTomField')
+          else
+            for _, v in pairs(BigGrapeFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigGreenPepperFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigChillyPepperFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
+            for _, v in pairs(BigTomatoesFields) do
+              exports['qb-target']:RemoveZone(v.Name)
+              inZone = false
+            end
           end
-          for _, v in pairs(BigChillyPepperFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
-          end
-          for _, v in pairs(BigTomatoesFields) do
-            exports['qb-target']:RemoveZone(v.Name)
-            inZone = false
-          end
-        end
-      end)
+        end)
+      end
     end
   end)
 else

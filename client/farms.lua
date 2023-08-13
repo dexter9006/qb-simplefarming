@@ -1,8 +1,9 @@
 AppleField = {
     [1] = {
-        label = "Apple Farm",
+        label = "Ferme - Champs",
         BlipCoord = vector3(2395.57, 4704.02, 33.65),
-        Blip = 1,
+        Blips = true, 
+        Blip = 557,
         BlipColor = 2,
         zones = {
             vector2(2452.8928222656, 4672.4086914062),
@@ -26,9 +27,10 @@ AppleField = {
         maxz = 39.898853302002,
     },
     [2] = {
-        label = "Apple Farm",
+        label = "Ferme - Champs",
         BlipCoord = vector3(229.14, 6511.47, 31.3),
-        Blip = 1,
+        Blips = true, 
+        Blip = 557,
         BlipColor = 2,
         zones = {
             vector2(289.20321655273, 6502.2163085938),
@@ -41,9 +43,10 @@ AppleField = {
         maxZ = 38.54899597168,
     },
     [3] = {
-        label = "Apple Farm",
+        label = "Ferme - Champs",
         BlipCoord = vector3(344.48, 6516.05, 28.98),
-        Blip = 1,
+        Blips = true, 
+        Blip = 557,
         BlipColor = 2,
         zones = {
             vector2(382.51480102539, 6501.0625),
@@ -55,9 +58,10 @@ AppleField = {
         maxZ = 38.128866195679,
     },
     [4] = {
-        label = "Apple Farm",
+        label = "Ferme - Champs",
         BlipCoord = vector3(2360.18, 5001.98, 43.37),
-        Blip = 1,
+        Blips = true, 
+        Blip = 557,
         BlipColor = 2,
         zones = {
             vector2(2399.5366210938, 4999.3530273438),
@@ -74,9 +78,10 @@ AppleField = {
         maxZ = 45.949619293213,
     },
     [5] = {
-        label = "Apple Farm",
+        label = "Ferme - Champs",
         BlipCoord = vector3(2067.21, 4830.06, 43.28),
-        Blip = 1,
+        Blips = true, 
+        Blip = 557,
         BlipColor = 2,
         zones = {
             vector2(2152.3620605469, 4867.8896484375),
@@ -97,7 +102,7 @@ AppleField = {
 
 Barns = {
     [1] = {
-        label = "Barn",
+        label = "Ferme - Etable",
         BlipCoord = vector3(427.27, 6467.9, 33.06),
         Blip = 569,
         BlipColor = 1,
@@ -114,10 +119,11 @@ Barns = {
 
 PumpkinField = {
     [1] = {
-        label = "Pumpkin Field",
+        label = "Ferme - Champs",
         BlipCoord = vector3(509.84, 6491.57, 30.65),
-        Blip = 1,
-        BlipColor = 17,
+        Blips = true, 
+        Blip = 557,
+        BlipColor = 2,
         zones = {
             vector2(496.97012329102, 6518.8471679688),
             vector2(496.59399414062, 6461.634765625),
@@ -131,10 +137,11 @@ PumpkinField = {
 
 CornFields = {
     [1] = {
-        label = "Corn Field",
+        label = "Ferme - Champs",
         BlipCoord = vector3(656.5, 6475.94, 31.98),
-        Blip = 1,
-        BlipColor = 46,
+        Blips = true, 
+        Blip = 557,
+        BlipColor = 2,
         zones = {
             vector2(740.30395507812, 6477.470703125),
             vector2(706.55572509766, 6485.8198242188),
@@ -152,10 +159,11 @@ CornFields = {
 
 Garden = {
     [1] = {
-        label = "Mixed Garden",
+        label = "Ferme - Champs",
         BlipCoord = vector3(341.1, 6474.72, 29.83),
-        Blip = 1,
-        BlipColor = 69,
+        Blips = true, 
+        Blip = 557,
+        BlipColor = 2,
         zones = {
             vector2(368.0016784668, 6488.8334960938),
             vector2(317.75241088867, 6488.841796875),
@@ -166,10 +174,11 @@ Garden = {
         maxZ = 31.1
     },
     [2] = {
-        label = "Tomatoe Garden",
+        label = "Ferme - Champs",
         BlipCoord = vector3(2287.61, 4764.79, 38.64),
-        Blip = 1,
-        BlipColor = 1,
+        Blips = true, 
+        Blip = 557,
+        BlipColor = 2,
         zones = {
             vector2(2290.1796875, 4773.1831054688),
             vector2(2290.6130371094, 4777.0229492188),
@@ -185,10 +194,11 @@ Garden = {
 
 BigGarden = {
     [1] = {
-        label = "Mixed Garden",
+        label = "Ferme - Champs",
         BlipCoord = vector3(1937.96, 4848.61, 45.46),
-        Blip = 1,
-        BlipColor = 69,
+        Blips = true, 
+        Blip = 557,
+        BlipColor = 2,
         zones = {
             vector2(2012.6793212891, 4827.8100585938),
             vector2(2005.8937988281, 4817.59765625),
@@ -211,7 +221,7 @@ BigGarden = {
 
 PigFarm = {
     [1] = {
-        label = "Pig Farm",
+        label = "Ferme - Porcherie",
         BlipCoord = vector3(2163.17, 4983.31, 41.42),
         Blip = 141,
         BlipColor = 5,

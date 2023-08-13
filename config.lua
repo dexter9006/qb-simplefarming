@@ -14,7 +14,7 @@ FoodProcessor = {
     SetBlipDisplay = 6,                                 -- Blip Behavior (https://docs.fivem.net/natives/?_0x9029B2F3DA924928)
     SetBlipScale = 0.65,                                -- Blip Size
     SetBlipColour = 35,                                 -- Blip Color
-    BlipLabel = "Food Processor",                       -- Blip Label
+    BlipLabel = "Ferme - Transformation nouriture",                       -- Blip Label
     minZ = 43.95,                                       -- qb-target Min
     maxZ = 47.95,                                       -- qb-target Max
 }
@@ -26,7 +26,7 @@ DairyProcessor = {
     SetBlipDisplay = 6,
     SetBlipScale = 0.65,
     SetBlipColour = 32,
-    BlipLabel = "Dairy Processor",
+    BlipLabel = "Ferme - Transformation Lait",
     minZ = 32.05,
     maxZ = 35.00,
 }
@@ -38,7 +38,7 @@ Seller = {
     SetBlipDisplay = 6,
     SetBlipScale = 0.65,
     SetBlipColour = 17,
-    BlipLabel = "Farm Seller",
+    BlipLabel = "Ferme - Vente",
     minZ = 4,
     maxZ = 7,
 }
