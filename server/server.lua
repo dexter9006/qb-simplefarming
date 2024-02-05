@@ -326,7 +326,7 @@ end)
 QBCore.Functions.CreateCallback('qb-simplefarming:grapecheck', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then
-        if Player.Functions.GetItemByName("grapes") ~= nil then
+        if Player.Functions.GetItemByName("grape") ~= nil then
             cb(true)
         else
             cb(false)
@@ -374,33 +374,33 @@ RegisterServerEvent('qb-simplefarming:grapepicking', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local grapepicking = math.random(1,2)
-    Player.Functions.AddItem('grapes', grapepicking)
-    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grapes'], "add")
-    TriggerClientEvent('QBCore:Notify', source, "Grabbed " ..grapepicking.. " Grapes")
+    Player.Functions.AddItem('grape', grapepicking)
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], "add")
+    TriggerClientEvent('QBCore:Notify', source, "Grabbed " ..grapepicking.. " Raisins")
 end)
 
 RegisterServerEvent('qb-simplefarming:grapeprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
-    local grapes = Player.Functions.GetItemByName('grapes')
-    if not grapes then
+    local grape = Player.Functions.GetItemByName('grape')
+    if not grape then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_grape'])
         return false
     end
 
-    local amount = grapes.amount
+    local amount = grape.amount
     if amount >= 1 then
         amount = Config.GrapeProcessing
     else
       return false
     end
 
-    if not Player.Functions.RemoveItem('grapes', amount) then
+    if not Player.Functions.RemoveItem('grape', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
         return false
     end
 
-    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grapes'], "remove")
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['grape_processing'])
     local Grape = Config.GrapeProcessed
     Wait(750)
@@ -782,7 +782,7 @@ QBCore.Functions.CreateUseableItem("canofcorn", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("grapes", function(source, item)
+QBCore.Functions.CreateUseableItem("grape", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
         TriggerClientEvent("consumables:client:Eat", source, item.name)
