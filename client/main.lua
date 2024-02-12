@@ -976,7 +976,7 @@ RegisterNetEvent('qb-simplefarming:makingchillysauce', function()
     end
   end)
 end)
-
+--[[
 RegisterNetEvent('qb-simplefarming:makinggrapejuice', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:grapecheck', function(grapes)
     if grapes then
@@ -997,7 +997,7 @@ RegisterNetEvent('qb-simplefarming:makinggrapejuice', function()
     end
   end)
 end)
-
+--]]
 
 RegisterNetEvent('GrapeField', function()
   for _, v in pairs(GrapeFields) do
@@ -2169,12 +2169,14 @@ RegisterNetEvent('qb-simplefarming:menuprocessor', function()
             event = 'qb-simplefarming:pumpkinpie',
         }
     },
+    --[[
     {
         header = 'Make Grape Juice',
         params = {
             event = 'qb-simplefarming:makinggrapejuice',
         }
     },
+    --]]
     {
         header = 'Make Caned Corn',
         params = {
