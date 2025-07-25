@@ -44,7 +44,6 @@ Seller = {
 }
 
 -- Pig Farm (Food)
-
 Config.PigFood = 5                                      -- Food Amount (Pig Food)
 Config.FoodPrice = 5                                    --  Pig Farm Food Price
 PigFarmer = vector4(2166.11, 5003.84, 40.39, 312.56)    -- Ped Location
@@ -95,8 +94,6 @@ Config.ProcessingTime = {
     ["chillypepper_processingtime"] = 7500,
     ["tomatoes_processingtime"] = 7500,
 }
-
-
 -- Sell Items
 Config.Sell = {
     ["apple"] = {
@@ -183,88 +180,85 @@ Config.Sell = {
     ["cow_leather"] = {
         ["price"] = math.random(25, 35)
     }
-
 }
-
 
 -- Alert Notification
 Config.Alerts = {
-    ['cancel'] = 'Cancelled',
-    ['weapon'] = 'You don\'t have a knife to do this',
-    ['itemamount'] = 'You are trying to process a amount that is invalid try again!',
+    ['cancel'] = 'Annulé',
+    ['weapon'] = 'Vous n\'avez pas de couteau pour faire cela',
+    ['itemamount'] = 'La quantité que vous essayez de traiter est invalide, veuillez réessayer !',
 
-    ['apple_pickingbar'] = 'Picking Apples',
-    ['apple_progressbar'] = 'Making Juice',
-	['apple_pickingfront'] = 'You picked ',
-    ['apple_pickingend'] = ' apples from the tree',
-    ['apple_processing'] = 'You are processing ' ..Config.AppleProcessing.. ' amount of apples',
-    ['apple_trader'] = 'Received ' ..Config.AppleJuice.. ' apple juice from the framer',
-    ['error_appleprocessor'] = 'Hm, It seems like you don\'t have any apples to process... Come back later!',
+    ['apple_pickingbar'] = 'Récolte de pommes',
+    ['apple_progressbar'] = 'Préparation du jus',
+    ['apple_pickingfront'] = 'Vous avez ramassé ',
+    ['apple_pickingend'] = ' pommes de l\'arbre',
+    ['apple_processing'] = 'Vous traitez ' ..Config.AppleProcessing.. ' pommes',
+    ['apple_trader'] = 'Vous avez reçu ' ..Config.AppleJuice.. ' jus de pomme du fermier',
+    ['error_appleprocessor'] = 'Hmm, il semble que vous n\'avez pas de pommes à traiter… Revenez plus tard !',
 
-    ['cow_milking'] = 'Milking The Cow',
-    ['emptybucket'] = 'You don\'t have a empty bucket',
-    ['killing_cow'] = 'Slaughtering Cow',
-    ['error_rawmeat'] = 'Hm, It looks like you don\'t have any raw meat to process... Come back later!',
-    ['cow_processbar'] = 'Cooking cow beef',
-    ['cow_processing'] = 'You cooked ' ..Config.BeefProcessing.. ' raw cow beef',
-    ['cow_dairyprocessorbar'] = 'Trading Raw Milk',
-    ['milk_processing'] = 'You are processing ' ..Config.MilkProcessing.. ' buckets of raw milk',
-    ['milk_trader'] = 'Received ' ..Config.Milk.. ' Bottles of milk',
-    ['error_milkprocessor'] = 'It looks like you don\'t have any buckets of milk..',
-    ['error_milklocation'] = 'Go to the Paleto Barn and milk the cows then come back!',
+    ['cow_milking'] = 'Traite de la vache',
+    ['emptybucket'] = 'Vous n\'avez pas de seau vide',
+    ['killing_cow'] = 'Abattage de la vache',
+    ['error_rawmeat'] = 'Hmm, il semble que vous n\'avez pas de viande crue à traiter… Revenez plus tard !',
+    ['cow_processbar'] = 'Cuisson du bœuf',
+    ['cow_processing'] = 'Vous avez cuisiné ' ..Config.BeefProcessing.. ' morceaux de bœuf cru',
+    ['cow_dairyprocessorbar'] = 'Échange de lait cru',
+    ['milk_processing'] = 'Vous traitez ' ..Config.MilkProcessing.. ' seaux de lait cru',
+    ['milk_trader'] = 'Vous avez reçu ' ..Config.Milk.. ' bouteilles de lait',
+    ['error_milkprocessor'] = 'Il semble que vous n\'avez pas de seaux de lait...',
+    ['error_milklocation'] = 'Allez à la grange de Paleto pour traire les vaches, puis revenez !',
 
-    ['picking_pumpkins'] = 'Picking Up Pumpkin',
-    ['pumpkin_processingbar'] = 'Smashing Pumpkins',
-    ['pumpkin_processing'] = 'Smashed ' ..Config.PumpkinProcessing,
-    ['pumpkin_trader'] = 'Made ' ..Config.PumpkinBoxes.. ' Boxes of pumpkin pie',
-    ['error_pumpkinsmashing'] = 'You don\'t have any pumpkins to smash',
+    ['picking_pumpkins'] = 'Récolte de citrouilles',
+    ['pumpkin_processingbar'] = 'Écrasement des citrouilles',
+    ['pumpkin_processing'] = 'Vous avez écrasé ' ..Config.PumpkinProcessing.. ' citrouilles',
+    ['pumpkin_trader'] = 'Vous avez fabriqué ' ..Config.PumpkinBoxes.. ' boîtes de tarte à la citrouille',
+    ['error_pumpkinsmashing'] = 'Vous n\'avez pas de citrouilles à écraser',
 
-    ['corn_picking'] = 'Picking Corn',
-    ['corn_progressbar'] = 'Making Can Corn',
-    ['corn_processing'] = 'Removed ' ..Config.CornProcessing.. ' corn',
-    ['corn_processed'] = 'Made ' ..Config.CornProcessed.. ' Can\'s of corn',
-    ['error_corncob'] = 'Seems like you don\'t have any corn cobs to process... Come Back Later!',
+    ['corn_picking'] = 'Récolte de maïs',
+    ['corn_progressbar'] = 'Préparation de maïs en conserve',
+    ['corn_processing'] = 'Vous avez retiré ' ..Config.CornProcessing.. ' épis de maïs',
+    ['corn_processed'] = 'Vous avez fabriqué ' ..Config.CornProcessed.. ' conserves de maïs',
+    ['error_corncob'] = 'Il semble que vous n\'ayez pas de maïs à traiter… Revenez plus tard !',
 
-    ['grape_picking'] = 'Picking Grapes',
-    ['grape_progressbar'] = 'Straining Grapes',
-    ['grape_processing'] = 'Strained ' ..Config.GrapeProcessing.. ' grapes',
-    ['grape_processed'] = 'Made ' ..Config.GrapeProcessed.. ' bottles of juice',
-    ['error_grape'] = 'Hm, It seems like you don\'t have any grapes to process... Come back later!',
+    ['grape_picking'] = 'Récolte de raisins',
+    ['grape_progressbar'] = 'Pressurage des raisins',
+    ['grape_processing'] = 'Vous avez pressé ' ..Config.GrapeProcessing.. ' raisins',
+    ['grape_processed'] = 'Vous avez fabriqué ' ..Config.GrapeProcessed.. ' bouteilles de jus',
+    ['error_grape'] = 'Hmm, il semble que vous n\'avez pas de raisins à traiter… Revenez plus tard !',
 
-    ['greenpepper_picking'] = "Picking GreenPeppers",
+    ['greenpepper_picking'] = "Récolte de poivrons verts",
 
-    ['chillypepper_picking'] = 'Picking ChillyPeppers',
-    ['chilly_hotsauce'] = 'Making Hot Sauce',
-    ['chilly_processing'] = 'Crushed ' ..Config.ChillyProcessing.. ' chilly Peppers',
-    ['chilly_processed'] = 'Made ' ..Config.ChillyProcessed.. ' hot sauce bottle\'s',
-    ['error_chilly'] = 'Hm, It seems like you don\'t have any chilly peppers to process... Come back later!',
+    ['chillypepper_picking'] = 'Récolte de piments forts',
+    ['chilly_hotsauce'] = 'Préparation de sauce piquante',
+    ['chilly_processing'] = 'Vous avez écrasé ' ..Config.ChillyProcessing.. ' piments forts',
+    ['chilly_processed'] = 'Vous avez fabriqué ' ..Config.ChillyProcessed.. ' bouteilles de sauce piquante',
+    ['error_chilly'] = 'Hmm, il semble que vous n\'avez pas de piments à traiter… Revenez plus tard !',
 
-    ['tomatoes_picking'] = 'Picking Tomatoes',
-    ['tomatoes_progressbar'] = 'Smashing Tomatoes',
-    ['tomatoes_processing'] = 'Squeezed ' ..Config.TomatoesProcessing.. ' tomatoes',
-    ['tomatoes_processed'] = 'Made ' ..Config.TomatoesProcessed.. ' jars of tomatopaste',
-    ['error_tomatoes'] = 'Hm, It seems like you don\'t have any tomatoes to process... Come back later!',
+    ['tomatoes_picking'] = 'Récolte de tomates',
+    ['tomatoes_progressbar'] = 'Écrasement des tomates',
+    ['tomatoes_processing'] = 'Vous avez pressé ' ..Config.TomatoesProcessing.. ' tomates',
+    ['tomatoes_processed'] = 'Vous avez fabriqué ' ..Config.TomatoesProcessed.. ' bocaux de concentré de tomate',
+    ['error_tomatoes'] = 'Hmm, il semble que vous n\'avez pas de tomates à traiter… Revenez plus tard !',
 
+    ['bacon_progressbar'] = 'Cuisson du bacon',
+    ['bacon_processing'] = 'Vous avez cuisiné ' ..Config.BaconProcessed.. ' tranches de bacon',
+    ['error_bacon'] = 'Vous n\'avez pas de bacon à cuire',
 
-    ['bacon_progressbar'] = 'Cooking Bacon',
-    ['bacon_processing'] = 'You cooked ' ..Config.BaconProcessed.. ' pieces of bacon',
-    ['error_bacon'] = 'Don\'t have any bacon to cook',
+    ['ham_progressbar'] = 'Cuisson du jambon',
+    ['ham_processing'] = 'Vous avez cuisiné ' ..Config.HamProcessed.. ' tranches de jambon',
+    ['error_ham'] = 'Vous n\'avez pas de jambon à cuire',
 
-    ['ham_progressbar'] = 'Cooking Ham',
-    ['ham_processing'] = 'You cooked ' ..Config.HamProcessed.. ' slices of ham',
-    ['error_ham'] = 'Don\'t have any ham to cook',
+    ['pork_progressbar'] = 'Cuisson du porc',
+    ['pork_cooking'] = 'Vous avez cuisiné ' ..Config.PorkProcessed.. ' morceaux de porc',
+    ['error_pork'] = 'Vous n\'avez pas de porc à cuire',
 
-    ['pork_progressbar'] = 'Cooking Pork',
-    ['pork_cooking'] = 'You cooked ' ..Config.PorkProcessed.. ' slabs of pork',
-    ['error_pork'] = 'Don\'t have any pork to cook',
+    ['sausage_progressbar'] = 'Cuisson des saucisses',
+    ['sausage_processing'] = 'Vous avez cuisiné ' ..Config.SausageProcessed.. ' saucisses',
+    ['error_sausage'] = 'Vous n\'avez pas de saucisses à cuire',
 
-    ['sausage_progressbar'] = 'Cooking Sausage',
-    ['sausage_processing'] = 'You cooked ' ..Config.SausageProcessed.. ' pieces of sausages',
-    ['error_sausage'] = 'Don\'t have any sausage to cook',
+    ['killing_pig'] = 'Abattage du cochon',
+    ['pig_reward'] = 'Vous avez reçu des objets après avoir tué le cochon',
 
-    ['killing_pig'] = 'Slaughtering Pig',
-    ['pig_reward'] = 'Received items for killing the pig',
-
-    ['error.soybean'] = 'You don\'t have any soybeans to feed the pigs',
-    ['stress'] = 'Your Stress Was Relieved',
+    ['error.soybean'] = 'Vous n\'avez pas de soja pour nourrir les cochons',
+    ['stress'] = 'Votre stress a été soulagé',
 }
