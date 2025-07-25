@@ -1,7 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 ----------------------------------- Apple Stuff -----------------------------------
-
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(AppleField) do
@@ -14,14 +13,12 @@ if Config.UseBlips then
           BeginTextCommandSetBlipName("STRING")
           AddTextComponentString(AppleField[k].label)
           EndTextCommandSetBlipName(AppleFieldBlip)
-
         local ApplePicking = PolyZone:Create(AppleField[k].zones, {
           name = AppleField[k].label,
           minZ = AppleField[k].minz,
           maxZ = AppleField[k].maxz,
           debugPoly = false
         })
-
         ApplePicking:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -33,14 +30,13 @@ if Config.UseBlips then
             end
           end
         end)
-      else 
+      else
         local ApplePicking = PolyZone:Create(AppleField[k].zones, {
           name = AppleField[k].label,
           minZ = AppleField[k].minz,
           maxZ = AppleField[k].maxz,
           debugPoly = false
         })
-
         ApplePicking:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -64,7 +60,6 @@ else
         maxZ = AppleField[k].maxz,
         debugPoly = false
       })
-
       ApplePicking:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
@@ -132,7 +127,7 @@ RegisterNetEvent('AppleTrees', function()
           type = "client",
           event = "qb-simplefarming:appletree",
           icon = "fas fa-apple-alt",
-          label = "Pick Apples",
+          label = "Récolter des Pommes",
         },
       },
     distance = v.distance,
@@ -140,9 +135,10 @@ RegisterNetEvent('AppleTrees', function()
   end
 end)
 
------------------------------------ Cow Farming Stuff -----------------------------------
+----------------------------------- Cow Farming Stuff -------------------------------------
 
--- Animals
+--Animals
+
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(Barns) do
@@ -154,14 +150,12 @@ if Config.UseBlips then
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentString(Barns[k].label)
         EndTextCommandSetBlipName(BarnBlip)
-
       local BarnFarming = PolyZone:Create(Barns[k].zones, {
           name = Barns[k].label,
           minZ = Barns[k].minz,
           maxZ = Barns[k].maxz,
           debugPoly = false
       })
-
       BarnFarming:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
@@ -199,7 +193,6 @@ else
           maxZ = Barns[k].maxz,
           debugPoly = false
       })
-
       BarnFarming:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -327,13 +320,13 @@ RegisterNetEvent('AnimalFarming', function()
           type = "client",
           event = "qb-simplefarming:milkcow",
           icon = "fa fa-tint",
-          label = "Milk Cow",
+          label = "Traire la Vache",
         },
         {
           type = "client",
           event = "qb-simplefarming:slaughter1",
           icon = "fa fa-cutlery",
-          label = "Kill Cow",
+          label = "Abattre la Vache",
         },
       },
       distance = v.distance,
@@ -355,20 +348,19 @@ RegisterNetEvent('AnimalFarming2', function()
           type = "client",
           event = "qb-simplefarming:milkcow",
           icon = "fa fa-tint",
-          label = "Milk Cow",
+          label = "Traire la Vache",
         },
         {
           type = "client",
           event = "qb-simplefarming:slaughter2",
           icon = "fa fa-cutlery",
-          label = "Kill Cow",
+          label = "Abattre la Vache",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('AnimalFarming3', function()
   for _, v in pairs(CowFarming3) do
@@ -384,20 +376,19 @@ RegisterNetEvent('AnimalFarming3', function()
           type = "client",
           event = "qb-simplefarming:milkcow",
           icon = "fa fa-tint",
-          label = "Milk Cow",
+          label = "Traire la Vache",
         },
         {
           type = "client",
           event = "qb-simplefarming:slaughter3",
           icon = "fa fa-cutlery",
-          label = "Kill Cow",
+          label = "Abattre la Vache",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('AnimalFarming4', function()
   for _, v in pairs(CowFarming4) do
@@ -413,20 +404,19 @@ RegisterNetEvent('AnimalFarming4', function()
           type = "client",
           event = "qb-simplefarming:milkcow",
           icon = "fa fa-tint",
-          label = "Milk Cow",
+          label = "Traire la Vache",
         },
         {
           type = "client",
           event = "qb-simplefarming:slaughter4",
           icon = "fa fa-cutlery",
-          label = "Kill Cow",
+          label = "Abattre la Vache",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 
 exports['qb-target']:AddBoxZone("GetCowBucket", vector3(419.13, 6470.74, 28.82), 1.4, 0.5, {
   name = "GetCowBucket",
@@ -440,12 +430,11 @@ exports['qb-target']:AddBoxZone("GetCowBucket", vector3(419.13, 6470.74, 28.82),
         type = "client",
         event = "qb-getcowbucket",
         icon = "fas fa-sign-in-alt",
-        label = "Grab A Bucket",
+        label = "Prendre un seau",
       },
     },
   distance = 1.2
 })
-
 
 ------------ Pumpkins --------------
 if Config.UseBlips then
@@ -460,14 +449,12 @@ if Config.UseBlips then
           BeginTextCommandSetBlipName("STRING")
           AddTextComponentString(PumpkinField[k].label)
           EndTextCommandSetBlipName(PumpkinFarmingBlip)
-
         local PumpkinFarmingLocation = PolyZone:Create(PumpkinField[k].zones, {
           name = PumpkinField[k].label,
           minZ = PumpkinField[k].minz,
           maxZ = PumpkinField[k].maxz,
           debugPoly = false
         })
-
         PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -486,7 +473,6 @@ if Config.UseBlips then
           maxZ = PumpkinField[k].maxz,
           debugPoly = false
         })
-
         PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -510,7 +496,6 @@ else
         maxZ = PumpkinField[k].maxz,
         debugPoly = false
       })
-
       PumpkinFarmingLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
@@ -525,7 +510,6 @@ else
     end
   end)
 end
-
 
 RegisterNetEvent('qb-simplefarming:pumpkinfarming', function()
   local playerPed = PlayerPedId()
@@ -590,7 +574,7 @@ RegisterNetEvent('qb-simplefarming:pumpkin', function()
           type = "client",
           event = "qb-simplefarming:pumpkinfarming",
           icon = "fa fa-sign-language",
-          label = "Pick Pumpkin",
+          label = "Récolter des Citrouilles",
         },
       },
       distance = v.distance,
@@ -611,15 +595,13 @@ if Config.UseBlips then
           BeginTextCommandSetBlipName("STRING")
           AddTextComponentString(CornFields[k].label)
           EndTextCommandSetBlipName(CornFieldBlips)
-
         local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
           name = CornFields[k].label,
           minZ = CornFields[k].minz,
           maxZ = CornFields[k].maxz,
           debugPoly = false
         })
-
-        CornFieldLocation:onPlayerInOut(function(isPointInside)
+          CornFieldLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
             TriggerEvent('CornField')
@@ -637,8 +619,7 @@ if Config.UseBlips then
           maxZ = CornFields[k].maxz,
           debugPoly = false
         })
-
-        CornFieldLocation:onPlayerInOut(function(isPointInside)
+          CornFieldLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
             TriggerEvent('CornField')
@@ -661,8 +642,7 @@ else
         maxZ = CornFields[k].maxz,
         debugPoly = false
       })
-
-      CornFieldLocation:onPlayerInOut(function(isPointInside)
+        CornFieldLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
           TriggerEvent('CornField')
@@ -696,7 +676,6 @@ RegisterNetEvent('qb-simplefarming:cornfield', function()
   end)
 end)
 
-
 RegisterNetEvent('qb-simplefarming:makecancorn', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:corncheck', function(corncob)
     if corncob then
@@ -718,7 +697,6 @@ RegisterNetEvent('qb-simplefarming:makecancorn', function()
   end)
 end)
 
-
 RegisterNetEvent('CornField', function()
   for _, v in pairs(CornField1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
@@ -733,15 +711,13 @@ RegisterNetEvent('CornField', function()
           type = "client",
           event = "qb-simplefarming:cornfield",
           icon = "fa fa-sign-language",
-          label = "Gather Corn",
+          label = "Récolter du Maïs",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
-
 
 -- Gradens --
 if Config.UseBlips then
@@ -756,15 +732,13 @@ if Config.UseBlips then
           BeginTextCommandSetBlipName("STRING")
           AddTextComponentString(Garden[k].label)
           EndTextCommandSetBlipName(GardenBlips)
-
         local GardenLocation = PolyZone:Create(Garden[k].zones, {
           name = Garden[k].label,
           minZ = Garden[k].minz,
           maxZ = Garden[k].maxz,
           debugPoly = false
         })
-
-        GardenLocation:onPlayerInOut(function(isPointInside)
+          GardenLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
             TriggerEvent('GrapeField')
@@ -797,8 +771,7 @@ if Config.UseBlips then
           maxZ = Garden[k].maxz,
           debugPoly = false
         })
-  
-        GardenLocation:onPlayerInOut(function(isPointInside)
+          GardenLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
             TriggerEvent('GrapeField')
@@ -836,8 +809,7 @@ else
         maxZ = Garden[k].maxz,
         debugPoly = false
       })
-
-      GardenLocation:onPlayerInOut(function(isPointInside)
+        GardenLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
           TriggerEvent('GrapeField')
@@ -976,6 +948,7 @@ RegisterNetEvent('qb-simplefarming:makingchillysauce', function()
     end
   end)
 end)
+
 --[[
 RegisterNetEvent('qb-simplefarming:makinggrapejuice', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:grapecheck', function(grapes)
@@ -1013,14 +986,13 @@ RegisterNetEvent('GrapeField', function()
             type = "client",
             event = "qb-simplefarming:grapefield",
             icon = "fa fa-sign-language",
-            label = "Pick From Garden",
+            label = "Récolter du Raisin",
           },
         },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('GreenPeppers', function()
   for _, v in pairs(GPeppersFields) do
@@ -1036,7 +1008,7 @@ RegisterNetEvent('GreenPeppers', function()
             type = "client",
             event = "qb-simplefarming:greenpepperfield",
             icon = "fa fa-sign-language",
-            label = "Pick From Garden",
+            label = "Récolter des Poivrons",
           },
         },
       distance = v.distance,
@@ -1058,14 +1030,13 @@ RegisterNetEvent('ChillPeppers', function()
             type = "client",
             event = "qb-simplefarming:chillfield",
             icon = "fa fa-sign-language",
-            label = "Pick From Garden",
+            label = "Récolter du Chili",
           },
         },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('Tomatoes', function()
   for _, v in pairs(TomatoesField) do
@@ -1081,14 +1052,13 @@ RegisterNetEvent('Tomatoes', function()
             type = "client",
             event = "qb-simplefarming:tomatoefields",
             icon = "fa fa-sign-language",
-            label = "Pick From Garden",
+            label = "Récolter des Tomates",
           },
         },
       distance = v.distance,
     })
   end
 end)
-
 
 -- Big Garden
 if Config.UseBlips then
@@ -1103,14 +1073,12 @@ if Config.UseBlips then
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentString(BigGarden[k].label)
         EndTextCommandSetBlipName(BigGardenBlips)
-
-      local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
+        local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
           name = BigGarden[k].label,
           minZ = BigGarden[k].minz,
           maxZ = BigGarden[k].maxz,
           debugPoly = false
       })
-
         BigGardenLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
@@ -1144,8 +1112,7 @@ if Config.UseBlips then
           maxZ = BigGarden[k].maxz,
           debugPoly = false
         })
-  
-        BigGardenLocation:onPlayerInOut(function(isPointInside)
+          BigGardenLocation:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
             TriggerEvent('BigGrapeField')
@@ -1183,8 +1150,7 @@ else
         maxZ = BigGarden[k].maxz,
         debugPoly = false
       })
-
-      BigGardenLocation:onPlayerInOut(function(isPointInside)
+        BigGardenLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
           TriggerEvent('BigGrapeField')
@@ -1228,14 +1194,13 @@ RegisterNetEvent('BigGrapeField', function()
           type = "client",
           event = "qb-simplefarming:grapefield",
           icon = "fa fa-sign-language",
-          label = "Pick From Garden",
+          label = "Récolter du Raisin",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('BigGreenPField', function()
   for _, v in pairs(BigGreenPepperFields) do
@@ -1251,7 +1216,7 @@ RegisterNetEvent('BigGreenPField', function()
           type = "client",
           event = "qb-simplefarming:greenpepperfield",
           icon = "fa fa-sign-language",
-          label = "Pick From Garden",
+          label = "Récolter du Poivrons",
         },
       },
       distance = v.distance,
@@ -1273,14 +1238,13 @@ RegisterNetEvent('BigChillyField', function()
           type = "client",
           event = "qb-simplefarming:chillfield",
           icon = "fa fa-sign-language",
-          label = "Pick From Garden",
+          label = "Récolter du Chili",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 
 RegisterNetEvent('BigTomField', function()
   for _, v in pairs(BigTomatoesFields) do
@@ -1296,14 +1260,13 @@ RegisterNetEvent('BigTomField', function()
           type = "client",
           event = "qb-simplefarming:tomatoefields",
           icon = "fa fa-sign-language",
-          label = "Pick From Garden",
+          label = "Récolter des Tomates",
         },
       },
       distance = v.distance,
     })
   end
 end)
-
 if Config.UseBlips then
   CreateThread(function()
     for k in pairs(PigFarm) do
@@ -1315,15 +1278,13 @@ if Config.UseBlips then
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentString(PigFarm[k].label)
         EndTextCommandSetBlipName(PigFarmBlips)
-
       local PigFarmLocation = PolyZone:Create(PigFarm[k].zones, {
         name = PigFarm[k].label,
         minZ = PigFarm[k].minz,
         maxZ = PigFarm[k].maxz,
         debugPoly = false
       })
-
-      PigFarmLocation:onPlayerInOut(function(isPointInside)
+        PigFarmLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
           TriggerEvent('PigPens')
@@ -1405,8 +1366,7 @@ else
         maxZ = PigFarm[k].maxz,
         debugPoly = false
       })
-
-      PigFarmLocation:onPlayerInOut(function(isPointInside)
+        PigFarmLocation:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
           TriggerEvent('PigPens')
@@ -1612,7 +1572,6 @@ RegisterNetEvent('qb-simplefarming:sausageprocessing', function()
   end)
 end)
 
-
 RegisterNetEvent('PigPens', function()
   for _, v in pairs(PigPens1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
@@ -1627,19 +1586,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig1",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1658,19 +1617,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig2",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1689,19 +1648,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig3",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1720,19 +1679,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig4",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1751,19 +1710,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig5",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1782,19 +1741,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig6",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1813,19 +1772,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig7",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1844,19 +1803,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig8",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1875,19 +1834,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig9",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1906,19 +1865,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig10",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1937,19 +1896,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig11",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1968,19 +1927,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig12",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -1999,19 +1958,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig13",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -2030,19 +1989,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig14",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -2061,19 +2020,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig15",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -2092,19 +2051,19 @@ RegisterNetEvent('PigPens', function()
           type = "client",
           event = "qb-simplefarming:petpiggy",
           icon = "Fas Fa-Hand-Paper",
-          label = "Pet",
+          label = "Caresser",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
           icon = "Fas Fa-Hand-Holding-Heart",
-          label = "Feed Pig",
+          label = "Nourrir le Cochon",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig16",
           icon = "Fas Fa-Piggy-Bank",
-          label = "Slaughter Pig",
+          label = "Abattre le Cochon",
         },
       },
       distance = v.distance,
@@ -2124,7 +2083,7 @@ exports['qb-target']:AddBoxZone("dairyfarmer", DairyProcessor.targetZone, 1, 1, 
       type = "client",
       event = "qb-simplefarming:dairyprocessor",
       icon = "fab fa-rocketchat",
-      label = "Talk to dairy farmer",
+      label = "Parler avec le Producteur Laitier",
     },
 	},
 	distance = 1.0
@@ -2142,7 +2101,7 @@ exports['qb-target']:AddBoxZone("piggyfarmer", PigFarmerTargetZone, 0.6, 0.8, {
       type = "server",
       event = "qb-simplefarming:pigfood",
       icon = "Fas Fa-Bacon",
-      label = "Grab Pig Food",
+      label = "Prendre de la Nourriture pour Cochon",
     },
 	},
 	distance = 1.0
@@ -2151,20 +2110,20 @@ exports['qb-target']:AddBoxZone("piggyfarmer", PigFarmerTargetZone, 0.6, 0.8, {
 RegisterNetEvent('qb-simplefarming:menuprocessor', function()
   local Processor = {
     {
-      header = "Farming Processor",
+      header = "Transformateur Agricole",
       isMenuHeader = true,
     },
     {
-        header = '< Go Back',
+        header = '< Retour',
     },
     {
-        header = 'Make Apple Juice',
+        header = 'Préparer du Jus de Pomme',
         params = {
             event = 'qb-simplefarming:processapples',
         }
     },
     {
-        header = 'Make Pumpkin Pies',
+        header = 'Préparer des Tartes à la Citrouille',
         params = {
             event = 'qb-simplefarming:pumpkinpie',
         }
@@ -2178,19 +2137,19 @@ RegisterNetEvent('qb-simplefarming:menuprocessor', function()
     },
     --]]
     {
-        header = 'Make Caned Corn',
+        header = 'Préparer du Maïs en Conserve',
         params = {
             event = 'qb-simplefarming:makecancorn',
         }
     },
     {
-        header = 'Make HotSauce',
+        header = 'Préparer de la Sauce Piquante',
         params = {
             event = 'qb-simplefarming:makingchillysauce',
         }
     },
     {
-        header = 'Make TomatoPaste',
+        header = 'Préparer du Concentré de Tomate',
         params = {
             event = 'qb-simplefarming:makingragu',
         }
@@ -2202,38 +2161,38 @@ end)
 RegisterNetEvent('qb-simplefarming:menufcow', function()
   local MeatCooking = {
     {
-      header = "Cooking Food",
+      header = "Cuire des Aliments",
       isMenuHeader = true,
     },
     {
-        header = '< Go Back',
+        header = '< Retour',
     },
     {
-        header = 'Cook Beef',
+        header = 'Cuire du Boeuf',
         params = {
             event = 'qb-simplefarming:beefprocessing',
         }
     },
     {
-        header = 'Cook Ham',
+        header = 'Cuire du Jambon',
         params = {
             event = 'qb-simplefarming:hamprocessing',
         }
     },
     {
-        header = 'Cook Bacon',
+        header = 'Cuire du Bacon',
         params = {
             event = 'qb-simplefarming:baconprocessing',
         }
     },
     {
-        header = 'Cook Pork',
+        header = 'Cuire du Porc',
         params = {
             event = 'qb-simplefarming:porkprocessing',
         }
     },
     {
-        header = 'Cook Sausage',
+        header = 'Cuire des Saucisses',
         params = {
             event = 'qb-simplefarming:sausageprocessing',
         }
@@ -2241,7 +2200,6 @@ RegisterNetEvent('qb-simplefarming:menufcow', function()
 }
 exports['qb-menu']:openMenu(MeatCooking)
 end)
-
 
 exports['qb-target']:AddBoxZone("grammahouse", vector3(2438.07, 4975.82, 46.81), 1.0, 1.0, {
 	name = "grammahouse",
@@ -2255,7 +2213,7 @@ exports['qb-target']:AddBoxZone("grammahouse", vector3(2438.07, 4975.82, 46.81),
       type = "client",
       event = "qb-simplefarming:menufcow",
       icon = "Fas Fa-hands",
-      label = "Start Cooking",
+      label = "Commencer la Cuisson",
     },
 	},
 	distance = 1.0
@@ -2273,7 +2231,7 @@ exports['qb-target']:AddBoxZone("processingped", FoodProcessor.targetZone, 1, 1,
       type = "client",
       event = "qb-simplefarming:menuprocessor",
       icon = "Fas Fa-hands",
-      label = "Talk to farmer",
+      label = "Parler au Fermier",
     },
 	},
 	distance = 1.0
@@ -2291,7 +2249,7 @@ exports['qb-target']:AddBoxZone("sellerped", Seller.targetZone, 1, 1, {
       type = "server",
       event = "qb-simpefarming:sellItems",
       icon = "Fas Fa-hands",
-      label = "Talk to farmer",
+      label = "Parler au Fermier",
     },
 	},
 	distance = 1.0
